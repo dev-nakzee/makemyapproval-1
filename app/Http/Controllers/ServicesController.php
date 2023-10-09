@@ -39,7 +39,7 @@ class ServicesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Services $services)
+    public function show(Request $request)
     {
         if($request->ajax()){
             $data = Services::select('id','service','description','status')->get();

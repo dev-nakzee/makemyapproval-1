@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use App\Models\Module;
 use App\Models\SubModule;
+use App\Models\Services;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -31,11 +32,12 @@ class AppServiceProvider extends ServiceProvider
             // $menu = Menu::get();
             // $submenu = SubMenu::get();
             // $pages = Pages::get();
-            // $services = Services::select('services.id as id','services.service as service', 'services.slug as slug', 'media.path as path')->join('media', 'services.media_id','media.id')->get();
+            $services = Services::select('services.id as id','services.service as service', 'services.slug as slug', 'media.path as path')->join('media', 'services.media_id','media.id')->get();
             // $category = Categories::get();
             // $blogs = Blogs::get();
             // $notices = Notice
             // $view->with(['menu' => $menu, 'submenu' => $submenu, 'pages' => $pages, 'services' => $services]);
+            $view->with(['services' => $services]);
         });
     }
 }

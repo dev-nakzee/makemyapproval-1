@@ -37,7 +37,9 @@
                         <a href>Services</a>
                         <div class="uk-navbar-dropdown" uk-drop="boundary: !.uk-navbar; stretch: x; flip: false">
                             <div class="uk-nav uk-navbar-dropdown-nav">
-                                
+                                @if($services)
+                                {{$services->services}}
+                                @endif
                             </div>
                         </div>
                     </li>
