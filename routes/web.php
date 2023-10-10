@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Site\PagesController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\MediaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,4 +34,13 @@ Route::controller(ServicesController::class)->prefix('admin')->group(function(){
 
 Route::controller(DashboardController::class)->prefix('admin')->group(function(){
     Route::get('/dashboard', 'index')->name('admin.dashboard');
+});
+
+
+Route::controller(MediaController::class)->group(function(){
+    Route::get('/media/all', 'index')->name('media.index');
+    Route::get('/media/show/dataTable', 'show')->name('media.table');
+    Route::post('/media/upload/store', 'store')->name('media.upload.store');
+    Route::post('/media/delete', 'destroy')->name('media.remove');
+    Route::get('/media/list', 'list')->name('media.list');
 });

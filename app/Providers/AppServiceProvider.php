@@ -32,7 +32,7 @@ class AppServiceProvider extends ServiceProvider
             // $menu = Menu::get();
             // $submenu = SubMenu::get();
             // $pages = Pages::get();
-            $services = Services::select('services.id as id','services.service as service', 'services.slug as slug', 'media.path as path')->join('media', 'services.media_id','media.id')->get();
+            $services = Services::get();
             // $category = Categories::get();
             // $blogs = Blogs::get();
             // $notices = Notice
